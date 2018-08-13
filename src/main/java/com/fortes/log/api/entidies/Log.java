@@ -24,18 +24,20 @@ public class Log {
 	
 
 	@Column(name = "acao")
+	@NotNull
 	private String acao;
 	
-
+	
+	@NotNull
 	@Column(name = "servico")
 	private String servico;
 	
-
+	@NotNull
 	@Column(name = "user_name")
 	private String userName;
 	
 
-	@Column(name = "data")
-	private Timestamp data;
+	@Column(name = "data_hora")
+	private Timestamp dataHora;
 
 }

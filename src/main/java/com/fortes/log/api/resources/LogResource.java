@@ -1,7 +1,8 @@
-package com.fortes.log.api.rest;
+package com.fortes.log.api.resources;
 
 import com.fortes.log.api.entidies.Log;
-import com.fortes.log.api.repository.LogRepository;
+import com.fortes.log.api.services.LogService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -16,22 +17,22 @@ import java.util.List;
 
 @RestController
 public class LogResource {
-
+	
 	@Autowired
-	private LogRepository rp;
+	private LogService service = new LogService();
 
 	@GetMapping("/log")
 	public ResponseEntity<?> receberLog(){
 
 		try {
-			return ResponseEntity.ok().body(rp.findAll());
+			return ResponseEntity.ok().body(service.recebeTodos());
 		}catch(Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
 
 	@PostMapping("/log")
-	public ResponseEntity<?> postLog(@Valid @RequestBody Log log, BindingResult bindingResult){
+	public ResponseEntity<?> salvarLog(@Valid @RequestBody Log log, BindingResult bindingResult){
 
 		try {
 			if (bindingResult.hasErrors()) {
@@ -40,8 +41,8 @@ public class LogResource {
 						error->errorList.add(error.getDefaultMessage()));
 				return ResponseEntity.badRequest().body(errorList);
 			}
-			rp.save(log);
-			return ResponseEntity.ok().body("Log Registrada ");
+			return ResponseEntity.ok()
+					.body(service.salvar(log));
 		}catch(Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}

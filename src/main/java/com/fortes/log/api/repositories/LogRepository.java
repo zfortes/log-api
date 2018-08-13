@@ -1,4 +1,4 @@
-package com.fortes.log.api.repository;
+package com.fortes.log.api.repositories;
 import com.fortes.log.api.entidies.Log;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
