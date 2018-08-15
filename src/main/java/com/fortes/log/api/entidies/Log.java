@@ -23,9 +23,9 @@ public class Log {
 	private Long id;
 	
 
-	@Column(name = "acao")
+	@Column(name = "metodo")
 	@NotNull
-	private String acao;
+	private String metodo;
 	
 	
 	@NotNull
@@ -39,5 +39,8 @@ public class Log {
 
 	@Column(name = "data_hora")
 	private Timestamp dataHora;
+	
+	@Column(name = "token")
+	private String token;
 
 }
