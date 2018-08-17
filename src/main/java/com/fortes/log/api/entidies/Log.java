@@ -36,7 +36,6 @@ public class Log {
 	@Column(name = "user_name")
 	private String userName;
 	
-
 	@Column(name = "data_hora")
 	private Timestamp dataHora;
 	
