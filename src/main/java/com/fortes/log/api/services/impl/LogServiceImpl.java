@@ -29,23 +29,19 @@ public class LogServiceImpl implements LogService{
 	private LogRepository rp;
 	
 	private static final Logger logTela = LoggerFactory.getLogger(LogServiceImpl.class);
-//	@Autowired
-//	private LogPageAbleRepository rp2;
+
 
 	
 	@Transactional
 	public Log salvar(Log log){
-//		BindingResult result;
 		Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
 		dataDeHoje.toLocalDateTime();
 		log.setDataHora(dataDeHoje);
-//		
-		
+	
 		
 		
 		Optional<Log> resultado = rp.findById(rp.save(log).getId());
-		
-//		
+
 		
 		
 		if (resultado.isPresent()){
