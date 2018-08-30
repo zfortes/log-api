@@ -12,9 +12,9 @@ public class LogDTOServiceImpl implements LogDTOService{
 		Log log = new Log();
 		log.setId(logDto.getId());
 		log.setMetodo(logDto.getMetodo());
-		log.setServico(logDto.getServico());
-		log.setUserName(logDto.getUserName());
-		log.setDataHora(logDto.getDataHora());
+//		log.setServico(logDto.getServico());
+//		log.setUserName(logDto.getUserName());
+//		log.setDataHora(logDto.getDataHora());
 		return log;
 	}
 }

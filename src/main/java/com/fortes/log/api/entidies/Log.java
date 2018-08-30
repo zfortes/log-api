@@ -10,36 +10,38 @@ import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.solr.core.mapping.Indexed;
+import org.springframework.data.solr.core.mapping.SolrDocument;
 
 
 @Getter
 @Setter
-@Entity
+@SolrDocument(solrCoreName = "log")
 public class Log {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_log")
+    @Indexed(name = "id", type = "long")
 	private Long id;
 	
 
-	@Column(name = "metodo")
+	@Indexed(name = "metodo", type = "string")
 	@NotNull
 	private String metodo;
 	
-	
-	@NotNull
-	@Column(name = "servico")
-	private String servico;
-	
-	@NotNull
-	@Column(name = "user_name")
-	private String userName;
-	
-	@Column(name = "data_hora")
-	private Timestamp dataHora;
-	
-	@Column(name = "token")
-	private String token;
+//
+//	@NotNull
+//	@Column(name = "servico")
+//	private String servico;
+//
+//	@NotNull
+//	@Column(name = "user_name")
+//	private String userName;
+//
+//	@Column(name = "data_hora")
+//	private Timestamp dataHora;
+//
+//	@Column(name = "token")
+//	private String token;
 
 }

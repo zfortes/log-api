@@ -33,16 +33,16 @@ public class LogResource {
 	
 	private LogDTOService serviceDTO = new LogDTOServiceImpl();
 
-	@GetMapping("/log")
-	public ResponseEntity<?> receberLog(){
-
-		try {
-			return ResponseEntity.ok().body(service.recebeTodos());
-		}catch(Exception e) {
-			return ResponseEntity.badRequest().body(e.getMessage());
-		}
-	}
-
+//	@GetMapping("/log")
+//	public ResponseEntity<?> receberLog(){
+//
+//		try {
+//			return ResponseEntity.ok().body(service.recebeTodos());
+//		}catch(Exception e) {
+//			return ResponseEntity.badRequest().body(e.getMessage());
+//		}
+//	}
+//
 	@PostMapping("/log")
 	public ResponseEntity<?> salvarLog(@Valid @RequestBody LogDTO logDto, BindingResult bindingResult){
 
@@ -53,7 +53,7 @@ public class LogResource {
 						error->errorList.add(error.getDefaultMessage()));
 				return ResponseEntity.badRequest().body(errorList);
 			}
-			
+
 			return ResponseEntity.ok()
 					.body(service.salvar(serviceDTO.converteLog(logDto)));
 		}catch(Exception e) {
@@ -61,11 +61,11 @@ public class LogResource {
 		}
 
 	}
-	
-	@RequestMapping(value = "/page", method = RequestMethod.POST)
-	public ResponseEntity<Page<Log>> receberPaginaLog(int page, int tamanhoPage){
-		
-		return ResponseEntity.ok().body(service.recebePagina(page, tamanhoPage));
-		
-	}
+//
+//	@RequestMapping(value = "/page", method = RequestMethod.POST)
+//	public ResponseEntity<Page<Log>> receberPaginaLog(int page, int tamanhoPage){
+//
+//		return ResponseEntity.ok().body(service.recebePagina(page, tamanhoPage));
+//
+//	}
 }

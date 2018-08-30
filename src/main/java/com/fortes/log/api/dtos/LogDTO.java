@@ -19,10 +19,10 @@ public class LogDTO {
 	@NotNull
 	private String metodo;
 	
-	@NotNull
+
 	private String servico;
 	
-	@NotNull
+
 	private String userName;
 	
 	private Timestamp dataHora;
@@ -32,8 +32,8 @@ public class LogDTO {
 	LogDTO(Log log) {
 		this.id = log.getId();
 		this.metodo = log.getMetodo();
-		this.servico = log.getServico();
-		this.userName = log.getUserName();
-		this.dataHora = log.getDataHora();
+//		this.servico = log.getServico();
+//		this.userName = log.getUserName();
+//		this.dataHora = log.getDataHora();
 	}
 }

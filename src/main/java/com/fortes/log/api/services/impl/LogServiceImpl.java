@@ -31,36 +31,38 @@ public class LogServiceImpl implements LogService{
 	private static final Logger logTela = LoggerFactory.getLogger(LogServiceImpl.class);
 
 
-	
+//
 	@Transactional
 	public Log salvar(Log log){
 		Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
 		dataDeHoje.toLocalDateTime();
-		log.setDataHora(dataDeHoje);
-	
-		
-		
+//		log.setDataHora(dataDeHoje);
+
+
+
 		Optional<Log> resultado = rp.findById(rp.save(log).getId());
 
-		
-		
+
+
 		if (resultado.isPresent()){
 			logTela.info("_________________Erro ao tentar salvar no banco______________________");
+		}else{
+			System.out.println("Salvo com sucesso");
 		}
 
-		
+
 		return 	log;
 	}
-	
-	@Transactional
-	public List<Log> recebeTodos(){
-		return rp.findAll();
-	}
-	
-	@Transactional
-	public Page<Log> recebePagina(int p, int tp){
-		@SuppressWarnings("deprecation")
-		PageRequest pageRequest = new PageRequest(p, tp);
-		return rp.findAll(pageRequest);
-	}
+//
+//	@Transactional
+//	public List<Log> recebeTodos(){
+//		return rp.findAll();
+//	}
+//
+//	@Transactional
+//	public Page<Log> recebePagina(int p, int tp){
+//		@SuppressWarnings("deprecation")
+//		PageRequest pageRequest = new PageRequest(p, tp);
+//		return rp.findAll(pageRequest);
+//	}
 }
